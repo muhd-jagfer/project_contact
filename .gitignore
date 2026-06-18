@@ -1,0 +1,17 @@
+# Python virtual environment
+backend/venv/
+backend/_pycache_/
+backend/*.pyc
+
+# Local SQlite Database file
+backend/instance/
+backend/*.db
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+
+# IDE / System files
+.vscode/
+.DS_Store
+Thumbs.db
