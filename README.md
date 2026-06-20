@@ -43,8 +43,8 @@ python main.py
 * change directory to frontend
 cd frontend
 
-*install the node modules 
+* install the node modules:
 npm install
 
-*start the vite development server 
+* start the vite development server:
 npm run dev
