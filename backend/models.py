@@ -6,6 +6,7 @@ class Contact(db.Model):
     first_name = db.Column(db.String(80), unique=False, nullable=False)
     last_name = db.Column(db.String(80), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    phone = db.Column(db.String(20), unique=True, nullable=True)
 
     def to_json(self):
         return {
@@ -13,4 +14,5 @@ class Contact(db.Model):
             "firstName": self.first_name,
             "lastName": self.last_name,
             "email": self.email,
+            "phone": self.phone,
         }

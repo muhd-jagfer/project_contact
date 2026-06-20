@@ -13,12 +13,13 @@ def create_contact():
     first_name = request.json.get("firstName")
     last_name = request.json.get("lastName")
     email = request.json.get("email")
+    phone = request.json.get("phone")
 
     if not first_name or not last_name or not email:
         return(
          jsonify({"message": "you must include a first name, last name and email"}), 400)
 
-    new_contact = Contact(first_name = first_name, last_name = last_name, email = email)
+    new_contact = Contact(first_name = first_name, last_name = last_name, email = email, phone = phone)
     try:
         db.session.add(new_contact)
         db.session.commit()
@@ -37,7 +38,7 @@ def update_contact(user_id):
     contact.first_name = data.get("firstName", contact.first_name)    
     contact.last_name = data.get("lastName", contact.last_name)
     contact.email = data.get("email", contact.email)
-
+    contact.phone = data.get("phone", contact.phone)
     db.session.commit()
 
     return jsonify({"message": "User updated"}), 200

@@ -4,6 +4,7 @@ const ContactForm = ({ existingContact = {}, updateCallback}) => {
     const [firstName, setFirstName] = useState(existingContact.firstName || "");
     const [lastName, setLastName] = useState(existingContact.lastName || "");
     const [email, setEmail] = useState(existingContact.email || "");
+    const [phone, setPhone] = useState(existingContact.phone || "")
 
     const updating = Object.entries(existingContact).length !== 0
 
@@ -13,7 +14,8 @@ const ContactForm = ({ existingContact = {}, updateCallback}) => {
         const data = {
             firstName,
             lastName,
-            email
+            email,
+            phone
         }
         const url = "http://127.0.0.1:5000/" + (updating ? `update_contact/${existingContact.id}` : "create_contact")
         const options = {
@@ -59,6 +61,15 @@ const ContactForm = ({ existingContact = {}, updateCallback}) => {
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+            <div>
+                <label htmlFor="phone">Phone:</label>
+                <input
+                    type="text"
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                 />
             </div>
             <button type="submit">{updating ? "Update" : "Create"}</button>
